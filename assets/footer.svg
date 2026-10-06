@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" font-family="'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b1a2b"/><stop offset="1" stop-color="#143a52"/></linearGradient></defs>
+<rect width="900" height="110" rx="20" fill="url(#bg)"/>
+<path d="M0 70 Q150 40 300 70 T600 70 T900 70 V110 H0Z" fill="#3de0c8" opacity=".25"><animate attributeName="d" dur="5s" repeatCount="indefinite" values="M0 70 Q150 40 300 70 T600 70 T900 70 V110 H0Z;M0 70 Q150 100 300 70 T600 70 T900 70 V110 H0Z;M0 70 Q150 40 300 70 T600 70 T900 70 V110 H0Z"/></path>
+<path d="M0 82 Q150 58 300 82 T600 82 T900 82 V110 H0Z" fill="#0e75b6" opacity=".35"><animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 82 Q150 58 300 82 T600 82 T900 82 V110 H0Z;M0 82 Q150 106 300 82 T600 82 T900 82 V110 H0Z;M0 82 Q150 58 300 82 T600 82 T900 82 V110 H0Z"/></path>
+<text x="450" y="42" text-anchor="middle" font-size="20" font-weight="600" fill="#eaf4f8">Thanks for visiting 👋  Let's build something great together.</text></svg>

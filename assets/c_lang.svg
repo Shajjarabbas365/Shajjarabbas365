@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="425" height="84" viewBox="0 0 425 84" font-family="'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a2b"/><stop offset="1" stop-color="#143a52"/></linearGradient>
+<linearGradient id="ac" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb454"/><stop offset="1" stop-color="#ff7a59"/></linearGradient></defs>
+<rect width="425" height="84" rx="18" fill="url(#bg)"/>
+<rect x="1.5" y="1.5" width="422" height="81" rx="17" fill="none" stroke="url(#ac)" stroke-opacity=".35" stroke-width="2"/>
+<rect x="1.5" y="1.5" width="422" height="81" rx="17" fill="none" stroke="url(#ac)" stroke-width="3" stroke-dasharray="90 1018" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-1108" dur="6s" repeatCount="indefinite"/></rect>
+<circle cx="52" cy="42" r="26" fill="url(#ac)" opacity=".18"><animate attributeName="r" values="26;30;26" dur="3s" repeatCount="indefinite"/></circle>
+<circle cx="52" cy="42" r="26" fill="none" stroke="url(#ac)" stroke-width="2"/>
+<text x="52" y="51" text-anchor="middle" font-size="26">🧠</text>
+<text x="92" y="50" font-size="20" font-weight="700" fill="#fff">Languages</text>
+<text x="92" y="72" font-size="15" fill="#b9cfdb">Python • Java • C++ • C# • Dart • MATLAB</text></svg>
