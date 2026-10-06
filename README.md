@@ -4,6 +4,8 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=3DE0C8&center=true&vCenter=true&width=700&lines=Full+Stack+Developer+%F0%9F%92%BB;Full+Stack+AI+Developer+%F0%9F%A4%96;Building+Modern+Web+Applications+%F0%9F%8C%90;I+think+I+am+Funny+%F0%9F%98%81" alt="Typing SVG" />
 </p>
 
+<p align="center"><img src="https://komarev.com/ghpvc/?username=shajjarabbas365&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" /></p>
+
 <p align="center"><img src="assets/ticker.svg" width="860" alt="Tech stack"/></p>
 
 <p align="center"><a href="https://www.linkedin.com/in/shajar-abbas-74a845238"><img src="assets/about.svg" width="860" alt="About me"/></a></p>
