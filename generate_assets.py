@@ -6,8 +6,8 @@ def svg(w,h,body,defs='',style=''):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="{F}">
 <defs><pattern id="sl" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity=".05"/></pattern>
 <filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>{defs}</defs>
-<style>{style}@keyframes bl{{50%{{opacity:0}}}}.cur{{animation:bl 1s steps(1) infinite}}</style>
-<rect width="{w}" height="{h}" fill="#000"/>{body}<rect width="{w}" height="{h}" fill="url(#sl)"/></svg>'''
+<style>{style}.bg{{fill:none}}@media (prefers-color-scheme:light){{.bg{{fill:#0d1117}}}}@keyframes bl{{50%{{opacity:0}}}}.cur{{animation:bl 1s steps(1) infinite}}</style>
+<rect class="bg" width="{w}" height="{h}"/>{body}<rect width="{w}" height="{h}" fill="url(#sl)"/></svg>'''
 def save(n,s): open(f'assets/{n}.svg','w',encoding='utf-8').write(s)
 def ext(text,x,y,size,depth=7,anchor='start',tid='t',ls=2,weight=700):
     t=escape(text)
@@ -28,8 +28,8 @@ def slab(x,y,w,h,layers=6,step=1.6):
         s+=f'<rect x="{x+i*step:.1f}" y="{y+i*step:.1f}" width="{w}" height="{h}" fill="rgb({c},{c},{c})"/>'
     return s
 def window(x,y,w,h,title,layers=6):
-    s=slab(x,y,w,h,layers)
-    s+=f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#050505" stroke="#fff" stroke-width="2"/>'
+    s=f'<mask id="wm"><rect width="2000" height="2000" fill="#fff"/><rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#000"/></mask><g mask="url(#wm)">{slab(x,y,w,h,layers)}</g>'
+    s+=f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none" stroke="#fff" stroke-width="2"/>'
     s+=f'<rect x="{x}" y="{y}" width="{w}" height="32" fill="#fff"/>'
     for i in range(3): s+=f'<rect x="{x+14+i*20}" y="{y+11}" width="10" height="10" fill="#000" opacity="{1-i*.3:.1f}"/>'
     s+=f'<text x="{x+84}" y="{y+22}" font-size="14" font-weight="700" fill="#000">{escape(title)}</text>'
@@ -79,7 +79,7 @@ def hero():
 # ---------- typing ----------
 def typing():
     W,H=860,64; T=4.6; lines=["Full Stack Developer","Full Stack AI Developer","Building Modern Web Applications","I think I am funny :)"]
-    C=T*len(lines); body=f'<rect x="1" y="1" width="{W-2}" height="{H-2}" fill="#050505" stroke="#444"/><text x="22" y="40" font-size="22" font-weight="700" fill="#777">$</text>'
+    C=T*len(lines); body=f'<rect x="1" y="1" width="{W-2}" height="{H-2}" fill="none" stroke="#555"/><text x="22" y="40" font-size="22" font-weight="700" fill="#777">$</text>'
     defs=''; fs=22; cw=fs*CW
     for i,l in enumerate(lines):
         n=len(l); a=i*T; ev=[(0,0)]
@@ -103,9 +103,8 @@ def ticker():
     t=lambda x,c,dy=0:f'<text x="{x}" y="{40+dy}" font-size="{fs}" font-weight="700" fill="{c}" textLength="{L:.0f}" lengthAdjust="spacing" xml:space="preserve">{escape(s)}</text>'
     g=''.join(t(k*L+dx,c,dy) for k in (0,1) for dx,dy,c in ((2.5,2.5,'#555'),(0,0,'#fff')))
     body=f'''<line x1="0" y1="8" x2="{W}" y2="8" stroke="#fff" stroke-width="2"/><line x1="0" y1="{H-8}" x2="{W}" y2="{H-8}" stroke="#fff" stroke-width="2"/>
-<g><animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.0f} 0" dur="45s" repeatCount="indefinite"/>{g}</g>
-<rect width="90" height="{H}" fill="url(#fl)"/><rect x="{W-90}" width="90" height="{H}" fill="url(#fr)"/>'''
-    defs='<linearGradient id="fl"><stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient><linearGradient id="fr"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000"/></linearGradient>'
+<g mask="url(#tm)"><g><animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.0f} 0" dur="45s" repeatCount="indefinite"/>{g}</g></g>'''
+    defs='<linearGradient id="tg"><stop offset="0" stop-color="#000"/><stop offset=".1" stop-color="#fff"/><stop offset=".9" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient><mask id="tm"><rect width="860" height="64" fill="url(#tg)"/></mask>'
     save('ticker',svg(W,H,body,defs))
 
 # ---------- about ----------
